@@ -3,7 +3,7 @@ from mpl_toolkits.mplot3d import Axes3D
 from matplotlib import cm
 import numpy as np
 from numpy import linspace, meshgrid
-from matplotlib.mlab import griddata
+from scipy.interpolate import griddata 
 
 '''Results taken from the run.py are post-processed and ploted with this script.'''
 

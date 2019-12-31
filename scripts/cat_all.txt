@@ -768,7 +768,7 @@ import numpy as np
 import os
 import time
 from numpy import linspace, meshgrid
-from matplotlib.mlab import griddata
+from scipy.interpolate import griddata
 
 import config as cf
 from python.network.network import *
