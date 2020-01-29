@@ -119,7 +119,7 @@ def get_surface(index):
   
   xi = linspace(min(x), max(x), 10)
   yi = linspace(min(y), max(y), 10)
-  Z = griddata([x, y], z, [xi, yi], method='linear')
+  Z = griddata((x, y), z, (xi[None,:],yi[:,None]), method='linear')
   X, Y = meshgrid(xi, yi)
   return X, Y, Z
   
