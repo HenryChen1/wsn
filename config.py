@@ -39,53 +39,53 @@ scenario34 = ('FCM',   None,              'zero',  'BS at (-65,-65)')
 # list with all scenarios to simulate
 
 # example of configuration to get first part of results
-#scenarios = [
-#              "cf.FITNESS_ALPHA=0.5",
-#              "cf.FITNESS_BETA=0.5",
-              #scenario3,
-#              "plot_clusters(network)",
-#              scenario0,
-              #scenario1,
-              #scenario2,
-              #scenario5,
-#              scenario4,
-#              "plot_time_of_death(network)",
-#              "plot_traces(traces)",
-#              "network.get_BS().pos_y=-75.0",
-#              scenario3,
+scenarios = [
+             "cf.FITNESS_ALPHA=0.5",
+             "cf.FITNESS_BETA=0.5",
+             # scenario0,
+             # scenario1,
+             scenario3,
+             "plot_clusters(network)",
+             # scenario7,
+             # "plot_clusters(network)",
+             # scenario4,
+             "plot_time_of_death(network)",
+             "plot_traces(traces)",
+            # "network.get_BS().pos_y=-75.0",
+            #  scenario3,
+            #  scenario0,
+            #  scenario1,
+            #  scenario2,
+            #  scenario5,
+            #  scenario4,
+            #  "save2csv(traces)",
+           ]
+
+# scenarios = [
+#               "cf.FITNESS_ALPHA=0.7",
+#               "cf.FITNESS_BETA=0.3",
 #              scenario0,
 #              scenario1,
 #              scenario2,
-#              scenario5,
-#              scenario4,
-#              "save2csv(traces)",
-#            ]
-
-scenarios = [
-              "cf.FITNESS_ALPHA=0.7",
-              "cf.FITNESS_BETA=0.3",
-             scenario0,
-             scenario1,
-#              scenario2,
-#              scenario3,
-#               scenario4,
-#              "cf.FITNESS_ALPHA=0.34",
-#              "cf.FITNESS_BETA=0.33",
-#              "cf.FITNESS_GAMMA=0.33",
-#               scenario6,
-#              scenario6,
-#              #'cf.BS_POS_X=65.0',
-#              #'cf.BS_POS_Y=65.0',
-#              #scenario32,
-#              #'cf.BS_POS_X=0.0',
-#              #'cf.BS_POS_Y=0.0',
-#              #scenario33,
-#              #'cf.BS_POS_X=-65.0',
-#              #'cf.BS_POS_Y=-65.0',
-#              #scenario34,
-              "save2csv_raw(traces)",
-              "plot_traces(traces)",
-            ]
+# #              scenario3,
+# #               scenario4,
+# #              "cf.FITNESS_ALPHA=0.34",
+# #              "cf.FITNESS_BETA=0.33",
+# #              "cf.FITNESS_GAMMA=0.33",
+# #               scenario6,
+# #              scenario6,
+# #              #'cf.BS_POS_X=65.0',
+# #              #'cf.BS_POS_Y=65.0',
+# #              #scenario32,
+# #              #'cf.BS_POS_X=0.0',
+# #              #'cf.BS_POS_Y=0.0',
+# #              #scenario33,
+# #              #'cf.BS_POS_X=-65.0',
+# #              #'cf.BS_POS_Y=-65.0',
+# #              #scenario34,
+#               "save2csv_raw(traces)",
+#               "plot_traces(traces)",
+#             ]
 
 #scenarios = [
 #              "cf.FITNESS_ALPHA=0.5",
@@ -132,7 +132,7 @@ NOTIFY_POSITION = 0
 
 ## Network configurations:
 # number of nodes
-NB_NODES = 300
+NB_NODES = 100
 # node sensor range
 COVERAGE_RADIUS = 15 # meters 
 # node transmission range
@@ -148,7 +148,7 @@ BS_POS_Y = 125.0
 MSG_LENGTH = 4000 # bits
 HEADER_LENGTH = 150 # bits
 # initial energy at every node's battery
-INITIAL_ENERGY = 2 # Joules
+INITIAL_ENERGY = 1 # Joules
 
 
 ## Energy Configurations

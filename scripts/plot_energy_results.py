@@ -111,15 +111,15 @@ def get_surface(index):
   x = []
   y = []
   z = []
-  for key1, value1 in total.iteritems():
-    for key2, value2 in value1.iteritems():
+  for key1, value1 in total.items():
+    for key2, value2 in value1.items():
       x.append(key1)
       y.append(key2*10e8)
       z.append(total[key1][key2][index])
   
   xi = linspace(min(x), max(x), 10)
   yi = linspace(min(y), max(y), 10)
-  Z = griddata(x, y, z, xi, yi, interp='linear')
+  Z = griddata([x, y], z, [xi, yi], method='linear')
   X, Y = meshgrid(xi, yi)
   return X, Y, Z
   

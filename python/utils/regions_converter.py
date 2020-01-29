@@ -28,8 +28,8 @@ class RegionsConverter(list):
   def _grid2regions(self, pixels):
     """Convert a grid to regions."""
     logging.info('converting grid to regions.')
-    for x, line in pixels.iteritems():
-      for y, pixel in line.iteritems():
+    for x, line in pixels.items():
+      for y, pixel in line.items():
         owners = set(pixels[x][y])
         region = self._get_region(owners)
         if region:
@@ -86,7 +86,7 @@ class RegionsConverter(list):
     """Print all regions."""
     sum = 0.0
     regions_str = ''
-    for owner, area in self._exclusive_regions.iteritems():
+    for owner, area in self._exclusive_regions.items():
       regions_str += "%s, %f \n" %(str(owner), area)
       sum += area
     for region in self:
@@ -107,7 +107,7 @@ class RegionsConverter(list):
     return coverage
 
   def _check(self, exclusive, overlapping):
-    for owner, area in exclusive.iteritems():
+    for owner, area in exclusive.items():
       assert area >= 0.0, "Negative region found!"
     for region in self:
       assert region.area >= 0.0, "Negative region found!"

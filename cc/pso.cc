@@ -80,10 +80,12 @@ Pso::Fitness(Individual &individual) {
                       fitness_beta_*term2  +
                       fitness_gamma_*term3;
 
-  fitness_t fitness_ret = {.total = fitness_val,
-                           .term1 = term1,
-                           .term2 = term2,
-                           .coverage_info = coverage_info};
+  //printf("fitness_val: %f", fitness_val);
+  fitness_t  fitness_ret;
+  fitness_ret.total = fitness_val;
+  fitness_ret.term1 = term1;
+  fitness_ret.term2 = term2;
+  fitness_ret.coverage_info = coverage_info;
 
   individual.SetFitness(fitness_ret);
 

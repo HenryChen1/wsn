@@ -11,7 +11,7 @@ class Tracer(dict):
     # lifetime/energy-related log
     self['alive_nodes']     = ('Number of alive nodes', rounds_label, [], 1, 0)
     if cf.TRACE_ENERGY:
-      self['energies']        = ('Energy (J)'           , rounds_label, [], 1, 0)
+      self['energies']      = ('Energy (J)'           , rounds_label, [], 1, 0)
 
     self['first_depletion'] = ('First depletion'       , rounds_label, [], 0, 0)
     self['30per_depletion'] = ('30 percent depletion'  , rounds_label, [], 0, 0)
@@ -29,4 +29,18 @@ class Tracer(dict):
     self['term2_initial']   = ('term2 learning'       , rounds_label, [], 0, 1)
     self['term1_final']     = ('term1 final'          , rounds_label, [], 0, 1)
     self['term2_final']     = ('term2 final'          , rounds_label, [], 0, 1)
+    
+    #这个是记录迭代的位置，默认从第一个开始，初始值为0
+    self.position = 0
 
+  def __iter__(self):
+    return self
+  
+  def __next__(self):
+    if self.position < len(self):
+      #判断当前的位置是否跟总的长度相等，
+      item = self[self.position]
+      self.position += 1
+      return  self
+    else:
+        raise StopIteration

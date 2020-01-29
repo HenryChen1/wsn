@@ -55,7 +55,7 @@ class FCM(RoutingProtocol):
       tmp_centroid = Node(0)
       tmp_centroid.pos_x = centroid[0]
       tmp_centroid.pos_y = centroid[1]
-      network.centroids.append(tmp_centroid)
+      network.centroids.append(tmp_centroid)#FCM确定的聚类中心
       nearest_node = None
       shortest_distance = cf.INFINITY
       for node in network[0:-1]:

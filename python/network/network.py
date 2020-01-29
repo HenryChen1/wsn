@@ -88,7 +88,7 @@ class Network(list):
 
       if self.sleep_scheduler_class:
         log = self._sleep_scheduler.schedule()
-        for key, value in log.iteritems():
+        for key, value in log.items():
           tracer[key][2].append(value)
 
       self.routing_protocol.setup_phase(self, round_nb)
