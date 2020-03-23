@@ -49,9 +49,9 @@ def autolabel(rects):
                 '%d' % int(height),
                 ha='center', va='bottom')
 
-#autolabel(rects1)
-#autolabel(rects2)
-#autolabel(rects3)
-#autolabel(rects4)
+autolabel(rects1)
+autolabel(rects2)
+autolabel(rects3)
+autolabel(rects4)
 
 plt.show()

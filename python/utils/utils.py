@@ -102,8 +102,8 @@ def save2csv(traces):
 def plot_traces(traces):
   last_tracer  = iter(traces)
   first_tracer = next(last_tracer)
-  #nb_columns   = len([1 for k, v in traces.items() if v[3]])
-  fig, ax      = plt.subplots(nrows=1, ncols=1)
+  # nb_columns   = len([1 for key, value in traces.items() if value[3]])
+  fig, ax      = plt.subplots(nrows=1, ncols=2)
 
   colors = ['b', 'r', 'k', 'y', 'g', 'c', 'm']
   line_style = ['-', '--', '-.', ':']
@@ -115,7 +115,7 @@ def plot_traces(traces):
     for trace_name, trace in tracer.items():
       if not trace[3]:
         continue
-      ax = plt.subplot(1, 1, subplot_idx)
+      ax = plt.subplot(1, 2, subplot_idx)
       #ax.set_title(trace_name)
       X = range(0, len(trace[2]))
       color_n_line = colors[color_idx] + line_style[line_idx]
@@ -146,7 +146,7 @@ def plot_nodes_plane(nodes):
   plt.show()
 
 def plot_clusters(network):
-  colors = ['b', 'k', 'y', 'g', 'm', 'c']
+  colors = ['b', 'k', 'y', 'g', 'm', 'c', 'r', 'pick', 'orange']
   # print clusters
   plt.figure()
   for cluster_id in range(0, cf.NB_CLUSTERS):
@@ -170,7 +170,7 @@ def plot_clusters(network):
     Y = np.array([node.pos_y for node in network[0:-1]])
     Z = np.array([1 if node.membership==cluster_id else 0 for node in network[0:-1]])
     X, Y, Z = grid(X, Y, Z)
-    plt.contour(X, Y, Z, 1, colors='0.6')
+    # plt.contour(X, Y, Z, 1, colors='0.6')
 
   # print centroids
   #heads = network.get_heads(only_alives=0)
@@ -250,6 +250,6 @@ def grid(x, y, z, resX=100, resY=100):
     xi = linspace(min(x), max(x), resX)
     yi = linspace(min(y), max(y), resY)
     X, Y = meshgrid(xi, yi)
-    Z = griddata((x, y), z, (xi[None,:],yi[:,None]), method='linear')
+    Z = griddata((x, y), z, (xi[None,:],yi[:,None]), method='nearest')
     return X, Y, Z
 

@@ -32,6 +32,9 @@ scenario4 = ('FCM',  'ModifiedPso',      'zero',  'FCMMPSO')
 scenario5 = ('FCM',  'Pso',              'zero',  None)
 scenario6 = ('FCM',  'Ecca',             'zero',  'ECCA')
 scenario7 = ('FCM',  'GeneticAlgorithm', 'zero',  None)
+scenario8 = ('AP',     None,             'zero',  None)
+scenario9 = ('KMEANS', None,             'zero',  None)
+scenario10 = ('EA_KMEANS', None,         'zero',  None)
 scenario31 = ('FCM',   None,              'zero',  'BS at (125,125)')
 scenario32 = ('FCM',   None,              'zero',  'BS at (65,65)')
 scenario33 = ('FCM',   None,              'zero',  'BS at (0,0)')
@@ -40,26 +43,41 @@ scenario34 = ('FCM',   None,              'zero',  'BS at (-65,-65)')
 
 # example of configuration to get first part of results
 scenarios = [
-             "cf.FITNESS_ALPHA=0.5",
-             "cf.FITNESS_BETA=0.5",
+             # "cf.FITNESS_ALPHA=0.5",
+             # "cf.FITNESS_BETA=0.5",
              # scenario0,
              # scenario1,
+             # scenario2,
+             # scenario3,
              scenario3,
              "plot_clusters(network)",
-             # scenario7,
-             # "plot_clusters(network)",
-             # scenario4,
              "plot_time_of_death(network)",
+    scenario8,
+    "plot_clusters(network)",
+    "plot_time_of_death(network)",
+    # scenario10,
+    # "plot_clusters(network)",
+    # "plot_time_of_death(network)",
+
+    #          "cf.FUZZY_M = 2.0",
+    #          scenario3,
+    #          "plot_clusters(network)",
+    #          "plot_time_of_death(network)",
+    #          "cf.FUZZY_M = 2.5",
+    #          scenario3,
+    #          "plot_clusters(network)",
+    #          "plot_time_of_death(network)",
+    #          "cf.FUZZY_M = 3",
+    #           scenario3,
+    # "plot_clusters(network)",
+    # "plot_time_of_death(network)",
              "plot_traces(traces)",
             # "network.get_BS().pos_y=-75.0",
-            #  scenario3,
-            #  scenario0,
-            #  scenario1,
-            #  scenario2,
-            #  scenario5,
-            #  scenario4,
             #  "save2csv(traces)",
            ]
+
+
+
 
 # scenarios = [
 #               "cf.FITNESS_ALPHA=0.7",
@@ -86,6 +104,9 @@ scenarios = [
 #               "save2csv_raw(traces)",
 #               "plot_traces(traces)",
 #             ]
+
+
+
 
 #scenarios = [
 #              "cf.FITNESS_ALPHA=0.5",
@@ -117,7 +138,7 @@ scenarios = [
 #            ]
 
 ## tracer options
-TRACE_ENERGY         = 0
+TRACE_ENERGY         = 1
 TRACE_ALIVE_NODES    = 1
 TRACE_COVERAGE       = 1
 TRACE_LEARNING_CURVE = 0
@@ -132,7 +153,7 @@ NOTIFY_POSITION = 0
 
 ## Network configurations:
 # number of nodes
-NB_NODES = 100
+NB_NODES = 200
 # node sensor range
 COVERAGE_RADIUS = 15 # meters 
 # node transmission range
@@ -166,9 +187,9 @@ THRESHOLD_DIST = math.sqrt(E_FS/E_MP) # meters
 
 
 ## Routing configurations:
-NB_CLUSTERS = 5
+NB_CLUSTERS = 6
 # FCM fuzzyness coeficient
-FUZZY_M = 2
+FUZZY_M = 1.5
 
 
 ## Sleep Scheduling configurations:
@@ -187,7 +208,7 @@ WMIN = 0.1
 # grid precision (the bigger the faster the simulation)
 GRID_PRECISION = 1 # in meters
 # useful constants (for readability)
-INFINITY = float('inf')
-MINUS_INFINITY = float('-inf')
+INFINITY = float('inf')#正无穷
+MINUS_INFINITY = float('-inf')#负无穷
 
 RESULTS_PATH = './results/'

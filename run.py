@@ -9,6 +9,9 @@ from python.routing.direct_communication import *
 from python.routing.mte import *
 from python.routing.leach import *
 from python.routing.fcm import *
+from python.routing.ap import *
+from python.routing.k_means import *
+from python.routing.ea_kmeans.ea_kmeans import *
 from python.network.aggregation_model import *
 
 logging.basicConfig(stream=sys.stderr, level=logging.INFO)

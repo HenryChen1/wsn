@@ -75,6 +75,7 @@ class Network(list):
     if self.sleep_scheduler_class:
       self._sleep_scheduler = SleepScheduler(self, self.sleep_scheduler_class)
 
+    # 开始循环迭代计算
     for round_nb in range(0, cf.MAX_ROUNDS):
       self.round = round_nb
       print_args = (round_nb, self.get_remaining_energy())
@@ -247,13 +248,15 @@ class Network(list):
     return [node for node in input_set if condition(node)]
 
   def get_remaining_energy(self, ignore_nodes=None):
-    """Returns the sum of the remaining energies at all nodes."""
+    """Returns the sum of the remaining energies at all nodes.
+    计算整个网络节点剩余能量
+    """
     set = self.get_alive_nodes()
     if len(set) == 0:
       return 0
     if ignore_nodes:
       set = [node for node in set if node not in ignore_nodes]
-    transform = lambda x: x.energy_source.energy
+    transform = lambda x: x.energy_source.energy#通过匿名函数Lambda传递节点能量
     energies = [transform(x) for x in set]
     return sum(x for x in energies)
 

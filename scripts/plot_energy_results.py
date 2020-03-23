@@ -3,7 +3,8 @@ from mpl_toolkits.mplot3d import Axes3D
 from matplotlib import cm
 import numpy as np
 from numpy import linspace, meshgrid
-from scipy.interpolate import griddata 
+from scipy.interpolate import griddata
+from matplotlib.ticker import LinearLocator, FormatStrFormatter
 
 '''Results taken from the run.py are post-processed and ploted with this script.'''
 
@@ -129,12 +130,12 @@ def plot_comparison(index1, index2, ax):
   surf = ax.plot_surface(X1, Y1, Z1, cmap=cm.Greys, linewidth=0, antialiased=False)
   wire = ax.plot_wireframe(X2, Y2, Z2, color='b')
 
-vs = 5
+vs = 4
 labels = ['DC', 'LEACH', 'MTE', 'FCMMPSO', 'FCM+PSO', 'ECCA']
-plot_comparison(3, vs, ax)
-#ax.set_zlim(-1.01, 1.01)
-#ax.zaxis.set_major_locator(LinearLocator(10))
-#ax.zaxis.set_major_formatter(FormatStrFormatter('%.02f'))
+plot_comparison(1, vs, ax)
+# ax.set_zlim(-1.01, 1.01)
+# ax.zaxis.set_major_locator(LinearLocator(10))
+# ax.zaxis.set_major_formatter(FormatStrFormatter('%.02f'))
 gray_proxy = plt.Rectangle((0, 0), 1, 1, fc='0.5')
 wire_proxy = plt.Rectangle((0, 0), 1, 1, fc='w', ec='b')
 ax.legend([gray_proxy, wire_proxy],['FCMMPSO',labels[vs]])
@@ -161,7 +162,7 @@ def plot_all_averages(energy):
     plt.xlabel('Field length/width (m)')
     plt.ylabel('Average energy spent in one round (J)')
 
-#plot_all_averages(40e-9)
-#plt.show()
+plot_all_averages(40e-9)
+plt.show()
 
 
